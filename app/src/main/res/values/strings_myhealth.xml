@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--all myhealth shit-->
+    <string name="myhealth_title_text">My Health</string>
+    <string name="weight_kg_text">Weight (kg)</string>
+    <string name="fat_percentage_text">Fat percentage (%)</string>
+    <string name="muscle_percentage_text">Muscle percentage (%)</string>
+    <string name="waist_circumference_cm_text">Waist Circumference (cm)</string>
+    <string name="body_mass_index_text">Body Mass Index</string>
+    <string name="loading_text">Loading…</string>
+    <string name="arrow_to_graphs_page_text">Arrow to graphs page</string>
+    <string name="fake_graph_text">Fake graph</string>
+    <string name="placeholder_grafiek_text">placeholder grafiek</string>
+    <string name="back_button_text">Back button</string>
+    <string name="year_text">Year:</string>
+    <string name="underweight_text">Underweight</string>
+    <string name="overweight_text">Overweight</string>
+    <string name="healthy_text">Healthy</string>
+    <string name="a_slider_for_the_orange_line_text">a slider for the orange line</string>
+    <string name="a_slider_to_display_the_value_text">a slider to display the value</string>
+    <string name="a_slider_to_add_the_white_dots_text">a slider to add the white dots</string>
+    <string-array name="rangeSliderValues">
+        <item>18.5</item>
+        <item>24.9</item>
+    </string-array>
+</resources>

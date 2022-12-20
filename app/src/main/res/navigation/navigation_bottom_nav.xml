@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.squads.screens.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/reservations"
+        android:name="com.example.squads.screens.reservations.ReservationsFragment"
+        android:label="fragment_reservations"
+        tools:layout="@layout/fragment_reservations" />
+    <fragment
+        android:id="@+id/session"
+        android:name="com.example.squads.screens.sessions.SessionFragment"
+        android:label="fragment_session"
+        tools:layout="@layout/fragment_sessions">
+        <action
+            android:id="@+id/action_homeFragment_to_SessionFragment"
+            app:destination="@id/session"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/myhealth"
+        android:name="com.example.squads.screens.myhealth.MyHealthFragment"
+        android:label="fragment_my_health"
+        tools:layout="@layout/fragment_my_health" >
+        <action
+            android:id="@+id/action_myhealth_to_myHealthGraphsFragment"
+            app:destination="@id/myHealthGraphsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/myHealthGraphsFragment"
+        android:name="com.example.squads.screens.myhealth.MyHealthGraphsFragment"
+        android:label="MyHealthGraphsFragment" >
+        <action
+            android:id="@+id/action_myHealthGraphsFragment_to_myhealth"
+            app:destination="@id/myhealth"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/myhealth"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.example.squads.screens.account.AccountFragment"
+        android:label="fragment_account" >
+    </fragment>
+    <fragment
+        android:id="@+id/exercises"
+        android:name="com.example.squads.screens.exercises.ExercisesFragment"
+        android:label="fragment_exercises" >
+    </fragment>
+
+</navigation>

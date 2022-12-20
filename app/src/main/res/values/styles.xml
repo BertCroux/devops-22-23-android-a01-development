@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="primary_button_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/white_border_button</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:paddingLeft">35dp</item>
+        <item name="android:paddingRight">35dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="title_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">60dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/title_dim</item>
+    </style>
+
+    <style name="small_text_account">
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="layoutaccountorientation">
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="title_style_account">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/smaller_title_dim</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="past_period_btn_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+    <style name="tab_item">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/black</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="subtitle_style">
+        <item name="android:textSize">@dimen/subtitle_dim</item>
+    </style>
+    
+    <style name="slider_style">
+        <item name="android:layout_width">@dimen/width_slider_bmi</item>
+        <item name="android:layout_height">@dimen/height_slider_bmi</item>
+        <item name="android:layout_marginEnd">32dp</item>
+        <item name="android:layout_marginBottom">-8dp</item>
+        <item name="android:stepSize">0.1</item>
+        <item name="android:theme">@style/Theme.Squads</item>
+        <item name="tickVisible">false</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+    </style>
+</resources>

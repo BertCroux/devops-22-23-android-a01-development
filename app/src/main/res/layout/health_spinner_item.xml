@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- the view that is used to display items in the spinner in MyHealthGraphsFragment -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/health_spinner_item_style"
+    android:padding="3dp"
+    android:textSize="20sp" />

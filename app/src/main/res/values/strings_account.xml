@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--settings tabs-->
+    <string name="account">Account</string>
+    <string name="naam">Naam</string>
+    <string name="user_id">User-ID:</string>
+    <!--personal details-->
+    <string name="personal_details">Personal Details</string>
+    <string name="email">Email:</string>
+    <string name="youremail_mail_com">youremail@mail.com</string>
+    <string name="phone">Phone:</string>
+    <string name="phonenumber">+32 499 999 999</string>
+    <string name="address">Address:</string>
+    <string name="Adrestest">Geraardbergsestraat 37 9500 Geraardsbergen</string>
+    <string name="length">Length:</string>
+    <string name="lengthtest">150cm</string>
+    <string name="physical_issues">Physical issues:</string>
+    <string name="empty">-</string>
+    <string name="drugs_used">Drugs used:</string>
+    <string name="password">Password:</string>
+    <string name="pwdtest">***********</string>
+    <!--membership-->
+    <string name="membership">Membership</string>
+    <string name="card">Card:</string>
+    <string name="defaultnosubscription">No subscription</string>
+    <string name="tokens">Tokens:</string>
+    <string name="defaultTokenAmount">0</string>
+    <!--privacy policy-->
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="privacy_policy_text">You can find our privacy policy on our website</string>
+    <!--app tour-->
+    <string name="apptour">App tour</string>
+    <string name="tour_text">Coming soon!</string>
+    <!--webpage-->
+    <string name="to_webpage">To Webpage</string>
+    <!--logout-->
+    <string name="logout">Logout</string>
+</resources>

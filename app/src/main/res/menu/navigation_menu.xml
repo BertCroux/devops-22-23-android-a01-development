@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/navigation_home" />
+    <item
+        android:id="@+id/reservations"
+        android:icon="@drawable/ic_reservation"
+        android:title="@string/navigation_reservation" />
+    <item
+        android:id="@+id/exercises"
+        android:icon="@drawable/ic_exercise"
+        android:title="@string/navigation_exercises" />
+    <item
+        android:id="@+id/myhealth"
+        android:icon="@drawable/ic_health"
+        android:title="@string/navigation_health" />
+
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/navigation_settings" />
+</menu>
