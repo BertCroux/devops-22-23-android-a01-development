@@ -38,7 +38,7 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v1
         with:
-          name: SquadApk
+          name: Squads.apk
           path: app/release/app-release.apk
   release_apk:
     name: Release APK
