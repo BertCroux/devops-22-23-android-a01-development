@@ -1,4 +1,4 @@
-name: CI
+name: Continuous Deployment Android
 on:
   push:
     branches: [main]
@@ -46,7 +46,7 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          script: ./gradlew connectedCheck
+          script: bash ./gradlew connectedCheck
 
       - name: Upload test report
         uses: actions/upload-artifact@v2
@@ -67,7 +67,7 @@ jobs:
           java-version: 11
 
       - name: SonarCloud Scan
-        run: ./gradlew app:sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        run: bash ./gradlew app:sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -85,7 +85,7 @@ jobs:
           java-version: 1.8
 
       - name: Build debug APK
-        run: ./gradlew assembleDebug --stacktrace
+        run: bash ./gradlew assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v2
