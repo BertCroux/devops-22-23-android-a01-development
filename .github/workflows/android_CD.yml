@@ -9,6 +9,9 @@ env:
   JAVA_VERSION: 11
   APK_FILENAME: Squads
 
+permissions:
+  contents: read
+
 jobs:
   test:
     name: Run Unit Tests
@@ -40,33 +43,3 @@ jobs:
         with:
           name: Squads.apk
           path: app/release/app-release.apk
-  release_apk:
-    name: Release APK
-    needs: [apk]
-    runs-on: ubuntu-latest
-    steps:
-      # Download Signed APK
-      - name: Download APK
-        uses: actions/download-artifact@v2
-        with:
-          name: ${{ env.APK_FILENAME }}.apk # done
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        #env:
-        #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # TODO
-        with:
-          tag_name: v0.${{ github.run_number }}
-          release_name: Release v0.${{ github.run_number }}
-
-      - name: Upload Signed APK
-        id: upload_release_asset
-        uses: actions/upload-release-asset@v1
-        #env:
-        #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # TODO
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ env.APK_FILENAME }}.apk # Done
-          asset_name: ${{ env.APK_FILENAME }}.apk # Done
-          asset_content_type: application/zip
