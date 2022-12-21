@@ -50,7 +50,8 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     steps:
-      - name: Sign app APK
+      - uses: r0adkll/sign-android-release@v1
+        name: Sign app APK
         # ID used to access action output
         id: sign_app
         with:
