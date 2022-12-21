@@ -6,89 +6,41 @@ on:
     branches: [main]
   workflow_dispatch:
 
+env:
+  JAVA_VERSION: 11
+  APK_FILENAME: Squads
+
+permissions:
+  contents: read
+
 jobs:
-  lint:
+  test:
+    name: Run Unit Tests
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
-
-      - name: Upload html test report
-        uses: actions/upload-artifact@v2
-        with:
-          name: lint.html
-          path: app/build/reports/lint-results-debug.html
-
-  unit-test:
-    needs: [lint]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
-
-      - name: Run tests
-        run: bash ./gradlew test
-
-      - name: Upload test report
-        uses: actions/upload-artifact@v2
-        with:
-          name: unit_test_report
-          path: app/build/reports/tests/testDebugUnitTest/
-
-  instrumentation-test:
-    needs: [unit-test]
-    runs-on: macos-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
-
-      - name: Run espresso tests
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 29
-          script: bash ./gradlew connectedCheck
-
-      - name: Upload test report
-        uses: actions/upload-artifact@v2
-        with:
-          name: instrumentation_test_report
-          path: app/build/reports/androidTests/connected/
-
-  static-code-analysis:
-    needs: [instrumentation-test]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
-
-      - name: set up JDK 11
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Setup JDK
         uses: actions/setup-java@v1
         with:
           java-version: 11
-
-      - name: SonarCloud Scan
-        run: bash ./gradlew app:sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  package:
-    needs: [static-code-analysis]
+      - name: Run Tests
+        run: bash ./gradlew test --stacktrace
+  apk:
     name: Generate APK
+    needs: test
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
-
-      - name: set up JDK 1.8
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Setup JDK
         uses: actions/setup-java@v1
         with:
-          java-version: 1.8
-
-      - name: Build debug APK
+          java-version: 11
+      - name: Build APK
         run: bash ./gradlew assembleDebug --stacktrace
-
       - name: Upload APK
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v1
         with:
-          name: expense-manager.apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: Squads.apk
+          path: app/release/app-release.apk
