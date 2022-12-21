@@ -42,7 +42,7 @@ jobs:
           path: app/release/app-release.apk
   release:
     name: Release APK
-    needs: SquadApk
+    needs: apk
     if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     steps:
