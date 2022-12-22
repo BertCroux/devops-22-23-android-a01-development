@@ -38,7 +38,7 @@ jobs:
         with:
           java-version: 11
       - name: Build APK
-        run: ./gradlew assembleRelease
+        run: bash ./gradlew bundleRelease
       - name: Upload APK
         uses: actions/upload-artifact@v1
         with:
