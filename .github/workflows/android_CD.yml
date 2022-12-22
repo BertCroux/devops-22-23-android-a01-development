@@ -26,6 +26,8 @@ jobs:
         run: chmod +x gradlew
       - name: Build APK
         run: ./gradlew bundleRelease
+      - name: Assemble Release Bundle
+        run: ./gradlew bundleRelease
       - name: Upload APK
         uses: actions/upload-artifact@v1
         with:
@@ -41,7 +43,7 @@ jobs:
         # ID used to access action output
         id: sign_app
         with:
-          releaseDirectory: app/release/app-release.apk/
+          releaseDirectory: app/release/
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
           # keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           alias: ${{ secrets.ALIAS }}
