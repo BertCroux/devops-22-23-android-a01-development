@@ -10,9 +10,6 @@ env:
   JAVA_VERSION: 11
   APK_FILENAME: Squads
 
-permissions:
-  contents: read
-
 jobs:
   test:
     name: Run Unit Tests
@@ -25,7 +22,7 @@ jobs:
         with:
           java-version: 11
       - name: Run Tests
-        run: bash ./gradlew test --stacktrace
+        run: ./gradlew test --stacktrace
   apk:
     name: Generate APK
     needs: test
@@ -38,7 +35,7 @@ jobs:
         with:
           java-version: 11
       - name: Build APK
-        run: bash ./gradlew assembleRelease | bash ./gradlew bundleRelease
+        run: ./gradlew assembleRelease
       - name: Upload APK
         uses: actions/upload-artifact@v1
         with:
