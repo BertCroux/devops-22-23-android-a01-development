@@ -40,9 +40,7 @@ jobs:
         uses: r0adkll/sign-android-release@v1
         with:
           releaseDirectory: app/build/outputs/apk/release
-          signingKeyBase64:
-            ${{ secrets.SIGNING_KEY }}
-            # keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
           alias: ${{ secrets.ALIAS }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
