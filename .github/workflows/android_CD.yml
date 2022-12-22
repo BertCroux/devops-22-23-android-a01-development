@@ -22,15 +22,17 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-      #- name: Build with Gradle
-      #id: build
-      #run: ./gradlew build
-      - name: Build APK
-        run: ./gradlew assembleRelease
-      - name: Assemble Release Bundle
-        run: ./gradlew bundleRelease
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+      
+    - name: Build with Gradle
+      id: build
+      run: ./gradlew build
+      
+    - name: Build Release AAB
+      id: buildRelease
+      run: ./gradlew bundleRelease
+      
       - name: Upload APK
         uses: actions/upload-artifact@v1
         with:
@@ -46,7 +48,7 @@ jobs:
         # ID used to access action output
         id: sign_app
         with:
-          releaseDirectory: app/release
+          releaseDirectory: app/build/outputs/bundle/release
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
           # keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           alias: ${{ secrets.ALIAS }}
