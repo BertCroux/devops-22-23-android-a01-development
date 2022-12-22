@@ -25,12 +25,10 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Build with Gradle
-        id: build
-        run: ./gradlew build
+      - name: Build debug APK
+        run: ./gradlew assembleRelease
 
-      - name: Build Release AAB
-        id: buildRelease
+      - name: Assemble Release Bundle
         run: ./gradlew bundleRelease
 
       - name: Upload APK
@@ -48,7 +46,7 @@ jobs:
         # ID used to access action output
         id: sign_app
         with:
-          releaseDirectory: app/build/outputs/bundle/release
+          releaseDirectory: app/build/outputs/apk/release
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
           # keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           alias: ${{ secrets.ALIAS }}
