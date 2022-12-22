@@ -52,7 +52,7 @@ jobs:
           name: Signed app bundle
           path: ${{steps.sign_app.outputs.signedReleaseFile}}
   upload:
-    #needs: [release]
+    needs: [apk]
     name: Upload the signed artifact
     runs-on: ubuntu-latest
     steps:
