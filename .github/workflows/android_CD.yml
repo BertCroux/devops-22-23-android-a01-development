@@ -49,12 +49,12 @@ jobs:
     needs: apk
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v2
+      - uses: BertCroux/devops-22-23-android-a01-development@v1
         name: Sign app APK
         # ID used to access action output
         id: sign_app
         with:
-          releaseDirectory: ../app/release/
+          releaseDirectory: /app/release/
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
           # keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           alias: ${{ secrets.ALIAS }}
