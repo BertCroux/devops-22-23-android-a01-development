@@ -31,8 +31,9 @@ jobs:
       - name: Assemble Release Bundle
         run: ./gradlew bundleRelease
 
-      - name: Release APK
+      - name: Sign app APK
         uses: r0adkll/sign-android-release@v1
+        id: sign_app
         with:
           releaseDirectory: app/build/outputs/apk/release
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
