@@ -49,7 +49,7 @@ jobs:
     needs: apk
     runs-on: ubuntu-latest
     steps:
-      - uses: r0adkll/sign-android-release@v1
+      - uses: actions/download-artifact@v2
         name: Sign app APK
         # ID used to access action output
         id: sign_app
