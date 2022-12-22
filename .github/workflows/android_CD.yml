@@ -68,6 +68,16 @@ jobs:
         with:
           name: Signed app bundle
           path: ${{steps.sign_app.outputs.signedReleaseFile}}
+  upload:
+    needs: [release]
+    name: Upload the signed artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload Bundle
+        uses: actions/upload-artifact@v2
+        with:
+          name: signed_app_bundle
+          path: /Squads.apk
   remove-old-artifacts:
     runs-on: ubuntu-latest
     # timeout-minutes: 10
