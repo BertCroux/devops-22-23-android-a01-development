@@ -47,7 +47,8 @@ jobs:
           path: ${{steps.sign_app.outputs.signedReleaseFile}}
       - name: Commit files
         run: |
-          cp ${{steps.sign_app.outputs.signedReleaseFile}} Squads.apk   
+          cp ${{steps.sign_app.outputs.signedReleaseFile}} Squads.apk
+          git add Squads.apk   
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -a -m "Create release"
