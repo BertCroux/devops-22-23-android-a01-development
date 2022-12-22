@@ -25,7 +25,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Build debug APK
+      - name: Assemble Release
         run: ./gradlew assembleRelease
 
       - name: Assemble Release Bundle
@@ -47,6 +47,7 @@ jobs:
           path: ${{steps.sign_app.outputs.signedReleaseFile}}
       - name: Commit files
         run: |
+          cp ${{steps.sign_app.outputs.signedReleaseFile}} Squads.apk   
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -a -m "Create release"
