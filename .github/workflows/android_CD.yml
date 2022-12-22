@@ -53,7 +53,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: signed_app_bundle
-          path: /Squads.apk
+          path: ${{steps.sign_app.outputs.signedReleaseFile}}
   remove-old-artifacts:
     runs-on: ubuntu-latest
     # timeout-minutes: 10
