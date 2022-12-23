@@ -1,9 +1,9 @@
 name: Continuous Deployment Android
 on:
   push:
-    branches: [master]
+    branches: [development]
   pull_request:
-    branches: [master]
+    branches: [development]
   workflow_dispatch:
 
 env:
@@ -12,7 +12,7 @@ env:
 
 jobs:
   apk:
-    name: Generate APK
+    name: Generate Sigend APK
     #needs: test
     runs-on: ubuntu-latest
     steps:
@@ -45,6 +45,11 @@ jobs:
         with:
           name: Signed app bundle
           path: ${{steps.sign_app.outputs.signedReleaseFile}}
+  copie:
+    name: Commit unziped apk file
+    needs: apk
+    runs-on: ubuntu-latest
+    steps:
       - name: Commit files
         run: |
           cp ${{steps.sign_app.outputs.signedReleaseFile}} Squads.apk
